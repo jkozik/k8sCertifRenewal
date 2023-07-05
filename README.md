@@ -80,30 +80,7 @@ To run the kubectl command, the new admin.conf file needs to be distributed.  Fi
 [root@kmaster ~]# cd /etc/kubernetes/
 [root@kmaster kubernetes]# ls
 admin.conf  controller-manager.conf  kubelet.conf  manifests  pki  scheduler.conf
-[root@kmaster kubernetes]# vi admin.conf
-[root@kmaster kubernetes]# pwd
-/etc/kubernetes
-[root@kmaster kubernetes]# cp admin.conf /root/.kube/config^C
-[root@kmaster kubernetes]# mkdir /root/.kube/config
-[root@kmaster kubernetes]# cp admin.conf /root/.kube/c
-cache/  config/
 [root@kmaster kubernetes]# cp admin.conf /root/.kube/config
-[root@kmaster kubernetes]# kubectl get nodes
-error: error loading config file "/root/.kube/config": read /root/.kube/config: is a directory
-[root@kmaster kubernetes]# cd /root/.kube
-[root@kmaster .kube]# ls
-cache  config
-[root@kmaster .kube]# cd config
-[root@kmaster config]# ls
-admin.conf
-[root@kmaster config]# mv admin.conf ..
-[root@kmaster config]# cd ..
-[root@kmaster .kube]# ls
-admin.conf  cache  config
-[root@kmaster .kube]# rm config
-rm: cannot remove ‘config’: Is a directory
-[root@kmaster .kube]# rmdir config
-[root@kmaster .kube]# cp admin.conf config
 [root@kmaster .kube]# kubectl get nodes
 NAME       STATUS   ROLES                  AGE     VERSION
 kmaster    Ready    control-plane,master   2y31d   v1.21.1
@@ -121,72 +98,14 @@ logout
 [jkozik@kmaster ~]$ exit
 logout
 Connection to 192.168.100.172 closed.
-[jkozik@dell2 ~]$ ls
-admin.conf
-admin.conf062122
-alpine-standard-3.11.6-x86_64.iso
-bck
-bin
-CentOS-7-x86_64-Minimal-1804.iso
-Desktop
-desktop.ovpn
-Dockerfile
-Documents
-Downloads
-example-ingress.yaml
-gitpat
-grafana.values
-index.html
-index.html.1
-jkozik@192.168.100.121
-k8sSkScw.com
-kernel-devel-3.10.0-1160.24.1.el7.x86_64.rpm
-kernel-devel-3.10.0-1160.25.1.el7.x86_64.rpm
-kernel-headers-3.10.0-1160.25.1.el7.x86_64.rpm
-kernel-plus-headers-3.10.0-1160.25.1.el7.centos.plus.x86_64.rpm
-kernel-plus-headers-3.10.0-1160.25.1.el7.centos.plus.x86_64.rpm.1
-local-minikube-docker
-logs
-metallb
-Music
-nginx
-nwcom-ingress-service.yaml
-nwcom.yaml
-old
-Oracle_VM_VirtualBox_Extension_Pack-5.2.16.vbox-extpack
-Pictures
-prometheus-example-app.yaml
-prometheus-grafana-ingress.yaml
-prometheus.values
-Public
-pvc.yaml
-skaffold
-Templates
-thinclient_drives
-vagrant-home
-VBoxGuestAdditions_5.2.16.iso
-Videos
-VirtualBox VMs
-x011222.tmp
-x072121.tmp
-x.gz
-x.tmp
-xx.tmp
-y.tmp
-Zabbix5SetupNotes
 [jkozik@dell2 ~]$ ls ad*
 admin.conf  admin.conf062122
 [jkozik@dell2 ~]$ ls .kube
 cache  config  http-cache  old
-[jkozik@dell2 ~]$ cd .
 [jkozik@dell2 ~]$ cd .kube
 [jkozik@dell2 .kube]$ mv config admin.conf070423
 [jkozik@dell2 .kube]$ mv ../admin.conf config
 [jkozik@dell2 .kube]$ cd
-[jkozik@dell2 ~]$ kubectl get nodes
-error: error loading config file "/home/jkozik/.kube/config": open /home/jkozik/.kube/config: permission denied
-[jkozik@dell2 ~]$ cd -
-/home/jkozik/.kube
 [jkozik@dell2 .kube]$ ls -lasth
 total 40K
    0 drwxr-xr-x.  5 jkozik jkozik  110 Jul  4 16:17 .
@@ -227,10 +146,8 @@ kworker2   125m         12%    878Mi           50%
 kworker3   238m         7%     2397Mi          64%
 ```
 # Links
-K8S: Unable to connect to the server: x509: certificate has expired or is not yet valid
-https://plainenglish.io/blog/k8s-unable-to-connect-to-the-server-x509-certificate-has-expired-or-is-not-yet-valid-bb3c3429be04
+[K8S: Unable to connect to the server: x509: certificate has expired or is not yet valid](https://plainenglish.io/blog/k8s-unable-to-connect-to-the-server-x509-certificate-has-expired-or-is-not-yet-valid-bb3c3429be04)
 
-Kubernetes: expired certificate
-https://stackoverflow.com/questions/49885636/kubernetes-expired-certificate
+[Kubernetes: expired certificate](https://stackoverflow.com/questions/49885636/kubernetes-expired-certificate)
 
 
